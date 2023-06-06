@@ -1,0 +1,30 @@
+ Axios.post("http://localhost:8081/register", {
+      email: email,
+      password: password,
+      firstName: firstName,
+      lastName: lastName,
+      username: username,
+      country: country,
+      countrycode: countrycode,
+      Address: Address,
+      phone: phone,
+    }).then((response) => {
+      if (response.data.message) {
+        setRegister(response.data.message);
+      } else {
+        setRegister("Account Created Successfully");
+      }
+    });
+
+
+
+    Axios.post("http://localhost:8081/login", {
+      email: email,
+      password: password,
+    }).then((response) => {
+      if (response.data.message) {
+        setLogin(response.data.message);
+      } else {
+        setLogin(response.data[0].email);
+      }
+    });
